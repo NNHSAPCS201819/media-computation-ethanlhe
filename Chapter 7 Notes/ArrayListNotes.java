@@ -55,6 +55,7 @@ public class ArrayListNotes
             if(list.get(i) % 2 == 0)
             {
                 list.remove(i);
+                i--;
             }
         }
     }
