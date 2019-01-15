@@ -25,7 +25,35 @@ public class PictureTester
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
-  
+  /** Method to test mirrorVertical */
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  public static void testHorizontal()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
+    caterpillar.explore();
+  }
+  public static void testHorizontalBotToTop()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.explore();
+  }
+  public static void testDiagonal()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorDiagonal();
+    caterpillar.explore();
+  }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
