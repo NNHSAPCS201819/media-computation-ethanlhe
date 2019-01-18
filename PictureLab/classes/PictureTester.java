@@ -64,7 +64,7 @@ public class PictureTester
   }
   
   /** Method to test mirrorTemple */
-  public static void testMirrorTemple()
+  public static void testMirrorSnowman()
   {
     Picture temple = new Picture("snowman.jpg");
     temple.explore();

@@ -253,7 +253,11 @@ public class Picture extends SimplePicture
     System.out.println(count);
   }
   
-  
+  public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol, int startDestRow, int startDestCol)
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      
+    }
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
