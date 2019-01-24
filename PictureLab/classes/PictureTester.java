@@ -35,21 +35,21 @@ public class PictureTester
   }
   public static void testHorizontal()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("icosfera.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
   public static void testHorizontalBotToTop()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("icosfera.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontalBotToTop();
     caterpillar.explore();
   }
   public static void testDiagonal()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("icosfera.jpg");
     caterpillar.explore();
     caterpillar.mirrorDiagonal(100);
     caterpillar.explore();
@@ -78,6 +78,16 @@ public class PictureTester
     Picture swan = new Picture("swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
+  }
+  
+  /** Method to test cropAndCopy */
+  public static void testCropAndCopy()
+  {
+    Picture temple = new Picture("temple.jpg");
+    Picture other = new Picture("swan.jpg");
+    temple.explore();
+    temple.cropAndCopy(other, 100, 200, 100, 200, 100, 200);
+    temple.explore();
   }
   
   /** Main method for testing.  Every class can have a main
