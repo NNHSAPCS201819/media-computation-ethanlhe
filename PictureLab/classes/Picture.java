@@ -198,22 +198,42 @@ public class Picture extends SimplePicture
         } 
     }
 
-    public void cropAndCopy(Picture picture, int sourceRowStart,int sourceRowEnd,int sourceColStart, int sourceColEnd, int startDestRow, int startDestCol)
+    public void cropAndCopy(Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol, int startDestRow, int startDestCol)
+    {
+        Pixel[][] sourcePixels = sourcePicture.getPixels2D();
+        Pixel[][] pixels = this.getPixels2D();
+        int rowCount = startDestRow;
+        int colCount = startDestCol;
+        for (int row = startSourceRow; row <= endSourceRow; row++)
+        {
+            for (int col = startSourceCol; col <= endSourceCol; col++)
+            {
+                Pixel sourcePixel = sourcePixels[row][col];
+                Pixel destPixel = pixels[rowCount][colCount];
+                destPixel.setColor(sourcePixel.getColor());
+                colCount++;
+                if (colCount > (startDestCol + (endSourceCol - startSourceCol)))
+                {
+                    colCount = startDestCol;
+                    rowCount++;
+                }
+            }
+        }
+
+    } 
+
+    public void grayScale()
     {
         Pixel[][] pixels = this.getPixels2D();
-        Pixel[][] source = picture.getPixels2D();
-        Pixel sourcePixel = null;
-        Pixel newPixel = null;
-        int rowDifference = startDestRow - sourceRowStart;
-        int colDifference = startDestCol - sourceColStart;
-
-        for(int row = sourceRowStart; row < sourceRowEnd; row++)
+        int average;
+        for (Pixel[] rowArray : pixels)
         {
-            for(int col = sourceColStart; col < sourceColEnd; col++)
+            for (Pixel pixelObj : rowArray)
             {
-                sourcePixel = source[row][col];
-                newPixel = pixels[startDestRow + rowDifference][startDestCol + colDifference];
-                newPixel.setColor(sourcePixel.getColor());
+                average = (pixelObj.getRed() + pixelObj.getBlue() + pixelObj.getGreen()) / 3;
+                pixelObj.setRed(average);
+                pixelObj.setGreen(average);
+                pixelObj.setBlue(average);
             }
         }
     }
@@ -270,7 +290,6 @@ public class Picture extends SimplePicture
         System.out.println(count);
     }
 
-    
     /** Method to show large changes in color 
      * @param edgeDist the distance for finding edges
      */
@@ -293,7 +312,7 @@ public class Picture extends SimplePicture
                     leftPixel.setColor(Color.BLACK);
                 else
                     leftPixel.setColor(Color.WHITE);
-                }
+            }
         }
     }
 
