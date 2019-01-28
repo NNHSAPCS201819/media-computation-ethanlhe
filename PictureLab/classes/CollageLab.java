@@ -14,24 +14,26 @@ public class CollageLab
      * Constructor for objects of class CollageLab
      */
     public CollageLab()
-        Picture canvas = new Picture(749,1245);
+    {
+        Picture total = new Picture(749,1245);
         
         Picture pic = new Picture("icosfera.jpg");
-        canvas.cropAndCopy(pic, 0, 374, 0, 622,0 ,0 );
+        total.cropAndCopy(pic, 0, 374, 0, 622,0 ,0 );
         
         Picture pic2 = new Picture("icosfera.jpg");
         pic2.mirrorHorizontal();
-        canvas.cropAndCopy(pic2, 0, 374, 0, 622, 374, 0);
+        total.cropAndCopy(pic2, 0, 374, 0, 622, 374, 0);
         
         Picture pic3 = new Picture("icosfera.jpg");
         pic3.mirrorHorizontalBotToTop();
-        canvas.cropAndCopy(pic3, 0, 374, 0, 622, 0, 622);
+        total.cropAndCopy(pic3, 0, 374, 0, 622, 0, 622);
         
         Picture pic4 = new Picture("icosfera.jpg");
         pic4.grayScale();
-        canvas.cropAndCopy(pic4, 0, 374, 0, 622, 374, 622);
+        total.cropAndCopy(pic4, 0, 374, 0, 622, 374, 622);
         
-       
-        canvas.explore();
+        
+        total.explore();
+        total.write("Ethan_He.jpg");
     }
 }
