@@ -21,7 +21,7 @@ public class CollageLab
         total.cropAndCopy(pic, 0, 374, 0, 622,0 ,0 );
         
         Picture pic2 = new Picture("icosfera.jpg");
-        pic2.mirrorHorizontal();
+        pic2.mirrorVerticalRightToLeft();
         total.cropAndCopy(pic2, 0, 374, 0, 622, 374, 0);
         
         Picture pic3 = new Picture("icosfera.jpg");
